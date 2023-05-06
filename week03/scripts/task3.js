@@ -25,13 +25,13 @@ document.querySelector('#addNumbers').addEventListener('click', addNumbers);
 const subtract = function (number1,number2){
     return number1 - number2;
 }
-const subtractNumbers=function() {
-    let minuend=parseInt(document.querySelector('#minuend').value);
-    let subtrahend=parseInt(document.querySelector('#subtrahend').value);
-    let result=subtract(minuend,subtrahend);
+const subtractNumbers = function(){
+    let minuend = parseInt(document.querySelector('#minuend').value);
+    let subtrahend = parseInt(document.querySelector('#subtrahend').value);
+    let result = subtract(minuend, subtrahend);
     document.querySelector('#difference').value = result;
 }
-document.querySelector("#subtractnumbers").addEventListener('click', subtractNumbers);
+document.querySelector("#subtractNumbers").addEventListener('click', subtractNumbers);
 
 // Step 7: Using arrow functions, repeat Steps 1-5 with new functions named multiply and mulitplyNumbers and HTML form controls with IDs of factor1, factor2, product and multiplyNumbers
 const multiply= (number1, number2)=> number1 * number2;
