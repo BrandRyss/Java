@@ -31,7 +31,7 @@ constsubtractNumbers=function() {
     letresult=subtract(minuend,subtrahend);
     document.querySelector('#difference').value = result;
 }
-document.querySelector("#subtractnumbers").addeventlistener('click', subtractNumbers)
+document.querySelector("#subtractnumbers").addEventListener('click', subtractNumbers)
 
 // Step 7: Using arrow functions, repeat Steps 1-5 with new functions named multiply and mulitplyNumbers and HTML form controls with IDs of factor1, factor2, product and multiplyNumbers
 constmultiply= (number1, number2)=> number1 * number2;
