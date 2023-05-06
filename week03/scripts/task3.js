@@ -25,7 +25,7 @@ document.querySelector('#addNumbers').addEventListener('click', addNumbers);
 const subtract = function (number1,number2){
     return number1 - number2;
 }
-constsubtractNumbers=function() {
+const subtractNumbers=function() {
     letminuend=parseInt(document.querySelector('#minuend').value);
     letsubtrahend=parseInt(document.querySelector('#subtrahend').value);
     letresult=subtract(minuend,subtrahend);
@@ -34,8 +34,8 @@ constsubtractNumbers=function() {
 document.querySelector("#subtractnumbers").addEventListener('click', subtractNumbers);
 
 // Step 7: Using arrow functions, repeat Steps 1-5 with new functions named multiply and mulitplyNumbers and HTML form controls with IDs of factor1, factor2, product and multiplyNumbers
-constmultiply= (number1, number2)=> number1 * number2;
-constmultiplyNumbers= ()=> {
+const multiply= (number1, number2)=> number1 * number2;
+const multiplyNumbers= ()=> {
     letfactor1=parseInt(document.querySelector('#factor1').value);
     letfactor2=parseInt(document.querySelector('#factor2').value);
     letresult=multiply(factor1,factor2);
@@ -43,8 +43,8 @@ constmultiplyNumbers= ()=> {
 }
 document.querySelector('#multiplyNumbers').addEventListener('click',multiplyNumbers);
 // Step 8: Using any of the three function declaration types, repeat Steps 1-5 with new functions named divide and divideNumbers and HTML form controls with IDs of dividend, divisor, quotient and divideNumbers
-constdivide= (number1, number2)=> number1 / number2;
-constdivideNumbers = () => {
+const divide= (number1, number2)=> number1 / number2;
+const divideNumbers = () => {
     letdividend=parseInt(document.querySelector('#dividend').value);
     letdivisor=parseInt(document.querySelector('#divisor').value);
     letresult=divide(dividend,divisor);
