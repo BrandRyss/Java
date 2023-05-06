@@ -15,15 +15,15 @@ function addNumbers(){
     let addend2 = parseint(document.getquerySelector('#addend2').value);
 
     let result = add(addend1, addend2);
-document.querySelector('#sum').value = result
+document.querySelector('#sum').value = result;
 }
 // Step 4: Assign the return value to an HTML form element with an ID of sum
 
 // Step 5: Add a "click" event listener to the HTML button with an ID of addNumbers that calls the addNumbers function
-document.querySelector('#addNumbers').addEventListener('click', addNumbers)
+document.querySelector('#addNumbers').addEventListener('click', addNumbers);
 // Step 6: Using function expressions, repeat Steps 1-5 with new functions named subtract and subtractNumbers and HTML form controls with IDs of minuend, subtrahend, difference and subtractNumbers
 const subtract = function (number1,number2){
-    return number1 - number2
+    return number1 - number2;
 }
 constsubtractNumbers=function() {
     letminuend=parseInt(document.querySelector('#minuend').value);
@@ -31,7 +31,7 @@ constsubtractNumbers=function() {
     letresult=subtract(minuend,subtrahend);
     document.querySelector('#difference').value = result;
 }
-document.querySelector("#subtractnumbers").addEventListener('click', subtractNumbers)
+document.querySelector("#subtractnumbers").addEventListener('click', subtractNumbers);
 
 // Step 7: Using arrow functions, repeat Steps 1-5 with new functions named multiply and mulitplyNumbers and HTML form controls with IDs of factor1, factor2, product and multiplyNumbers
 constmultiply= (number1, number2)=> number1 * number2;
