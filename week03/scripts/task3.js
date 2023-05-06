@@ -70,7 +70,6 @@ document.querySelector('#year').textContent = currentYear;
 
 // Step 1: Declare and instantiate an array variable to hold the numbers 1 through 25
 function range(start, stop, step) {
-
     let nums = [];
     for (let i = start; i < stop; i += step) {
         nums.push(i);
