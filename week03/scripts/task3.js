@@ -26,9 +26,9 @@ const subtract = function (number1,number2){
     return number1 - number2;
 }
 const subtractNumbers=function() {
-    letminuend=parseInt(document.querySelector('#minuend').value);
-    letsubtrahend=parseInt(document.querySelector('#subtrahend').value);
-    letresult=subtract(minuend,subtrahend);
+    let minuend=parseInt(document.querySelector('#minuend').value);
+    let subtrahend=parseInt(document.querySelector('#subtrahend').value);
+    let result=subtract(minuend,subtrahend);
     document.querySelector('#difference').value = result;
 }
 document.querySelector("#subtractnumbers").addEventListener('click', subtractNumbers);
@@ -36,18 +36,18 @@ document.querySelector("#subtractnumbers").addEventListener('click', subtractNum
 // Step 7: Using arrow functions, repeat Steps 1-5 with new functions named multiply and mulitplyNumbers and HTML form controls with IDs of factor1, factor2, product and multiplyNumbers
 const multiply= (number1, number2)=> number1 * number2;
 const multiplyNumbers= ()=> {
-    letfactor1=parseInt(document.querySelector('#factor1').value);
-    letfactor2=parseInt(document.querySelector('#factor2').value);
-    letresult=multiply(factor1,factor2);
+    let factor1=parseInt(document.querySelector('#factor1').value);
+    let factor2=parseInt(document.querySelector('#factor2').value);
+    let result=multiply(factor1,factor2);
     document.querySelector('#product').value = result;
 }
 document.querySelector('#multiplyNumbers').addEventListener('click',multiplyNumbers);
 // Step 8: Using any of the three function declaration types, repeat Steps 1-5 with new functions named divide and divideNumbers and HTML form controls with IDs of dividend, divisor, quotient and divideNumbers
 const divide= (number1, number2)=> number1 / number2;
 const divideNumbers = () => {
-    letdividend=parseInt(document.querySelector('#dividend').value);
-    letdivisor=parseInt(document.querySelector('#divisor').value);
-    letresult=divide(dividend,divisor);
+    let dividend=parseInt(document.querySelector('#dividend').value);
+    let divisor=parseInt(document.querySelector('#divisor').value);
+    let result=divide(dividend,divisor);
     document.querySelector('#quotient').value = result;
 
 }
