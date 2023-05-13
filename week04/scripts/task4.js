@@ -56,16 +56,6 @@ myself.hobbies.forEach(hobby => {
 // Step 8: For each object in the <em>placesLived</em> property:
 // - Create an HTML <dt> element and put its place property in the <dt> element
 // - Create an HTML <dd> element and put its length property in the <dd> element
-const placesLivedElement = document.getElementById('places-lived');
-myself.placesLived.forEach(place => {
-  const dt = document.createElement('dt');
-  dt.textContent = place.place;
-  placesLivedElement.appendChild(dt);
-
-  const dd = document.createElement('dd');
-  dd.textContent = place.length;
-  placesLivedElement.appendChild(dd);
-});
 // Step 9: Append the HTML <dt> and <dd> elements created above to the HTML <dl> element with an ID of places-lived
 const placesLivedElement = document.getElementById('places-lived');
 myself.placesLived.forEach(place => {
