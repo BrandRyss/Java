@@ -3,10 +3,10 @@
 /* IF/ELSE IF */
 
 // Step 1: Declare and initialize a new variable to hold the current date
-const currentDate = new Date();
+const curDate = new Date();
 
 // Step 2: Declare another variable to hold the day of the week
-const dayOfWeek = currentDate.getDay();
+const dayOfWeek = curDate.getDay();
 
 // Step 3: Using the variable declared in Step 1, assign the value of the variable declared in Step 2 to the day of the week
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
