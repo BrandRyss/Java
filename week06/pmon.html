@@ -2,11 +2,31 @@
 <html>
 <head>
   <title>Pokémon Quiz</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>Pokémon Quiz</h1>
   <div id="sprite-container"></div>
+  <div id="generation-options">
+    <input type="checkbox" class="gen-checkbox" id="gen1-checkbox" value="1">
+    <label for="gen1-checkbox">Generation 1</label>
+    <input type="checkbox" class="gen-checkbox" id="gen2-checkbox" value="2">
+    <label for="gen2-checkbox">Generation 2</label>
+    <input type="checkbox" class="gen-checkbox" id="gen3-checkbox" value="3">
+    <label for="gen3-checkbox">Generation 3</label>
+    <input type="checkbox" class="gen-checkbox" id="gen4-checkbox" value="4">
+    <label for="gen4-checkbox">Generation 4</label>
+    <input type="checkbox" class="gen-checkbox" id="gen5-checkbox" value="5">
+    <label for="gen5-checkbox">Generation 5</label>
+  </div>
+  <div id="type-comparison">
+    <p id="type-advantages"></p>
+    <p id="type-weaknesses"></p>
+  </div>
   <input type="text" id="guess-input" placeholder="Enter your guess">
-  <button id="submit-button">Submit</button>
-  <script src="script.js"></script>
+  <button id="submit-button">Guess</button>
+  <button id="new-game-button">New Game</button>
+  <p id="guess-result"></p>
+  <script src="getpoke.js"></script>
 </body>
 </html>
