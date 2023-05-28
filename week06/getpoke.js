@@ -4,7 +4,6 @@ const guessInput = document.getElementById('guess-input');
 const submitButton = document.getElementById('submit-button');
 const newGameButton = document.getElementById('new-game-button');
 const genCheckboxes = document.querySelectorAll('.gen-checkbox');
-const typeComparison = document.getElementById('type-comparison');
 
 let selectedGenerations = [];
 
@@ -56,24 +55,15 @@ function displayPokemonSprite(spriteURL) {
 
 // Function to check the guess
 function checkGuess(pokemonName, guess) {
-  const guessResult = document.getElementById('guess-result');
-  const newGameButton = document.getElementById('new-game-button');
   guessResult.innerHTML = '';
 
   if (guess.toLowerCase() === pokemonName.toLowerCase()) {
     guessResult.textContent = 'Correct! Play again? Click "New Game"';
     newGameButton.disabled = false;
-    
-    // Get type effectiveness
-    const effectiveness = getTypeEffectiveness(pokemonTypes);
-
-    // Display type information
-    updateTypeInformation(effectiveness);
   } else {
     guessResult.textContent = `Incorrect! The Pokémon was ${pokemonName}. Try again.`;
   }
 }
-
 
 // Function to start a new game
 function newGame() {
@@ -81,7 +71,6 @@ function newGame() {
   guessInput.value = '';
   submitButton.disabled = false;
   spriteContainer.innerHTML = '';
-  typeComparison.textContent = '';
 
   if (selectedGenerations.length === 0) {
     guessResult.textContent = 'Please select at least one generation.';
@@ -90,151 +79,12 @@ function newGame() {
 
   fetchRandomPokemon()
     .then((pokemon) => {
+      spriteContainer.dataset.pokemonName = pokemon.name;
       displayPokemonSprite(pokemon.sprites.front_default);
-      generateTypeComparison(pokemon);
     })
     .catch((error) => {
       console.log('Error fetching Pokémon:', error);
     });
-}
-
-// Function to generate type comparison
-function generateTypeComparison(pokemon) {
-  const types = pokemon.types.map(type => type.type.name);
-  const effectiveness = calculateTypeEffectiveness(types);
-
-  if (effectiveness.strong.length > 0 || effectiveness.weak.length > 0) {
-    let comparisonText = 'This Pokémon is ';
-    if (effectiveness.strong.length > 0) {
-      comparisonText += `strong against ${effectiveness.strong.join(', ')}`;
-    }
-    if (effectiveness.weak.length > 0) {
-      if (effectiveness.strong.length > 0) {
-        comparisonText += ' and ';
-      }
-      comparisonText += `weak against ${effectiveness.weak.join(', ')}`;
-    }
-    comparisonText += '.';
-    typeComparison.textContent = comparisonText;
-  } else {
-    typeComparison.textContent = 'This Pokémon does not have any known type advantages or weaknesses.';
-  }
-}
-// Function to update type information
-function updateTypeInformation(effectiveness) {
-  const typeAdvantagesElement = document.getElementById('type-advantages');
-  const typeWeaknessesElement = document.getElementById('type-weaknesses');
-
-  // Display type advantages
-  if (effectiveness.strong.length > 0) {
-    const advantagesText = `Advantages: ${effectiveness.strong.join(', ')}`;
-    typeAdvantagesElement.textContent = advantagesText;
-  } else {
-    typeAdvantagesElement.textContent = 'No type advantages';
-  }
-
-  // Display type weaknesses
-  if (effectiveness.weak.length > 0) {
-    const weaknessesText = `Weaknesses: ${effectiveness.weak.join(', ')}`;
-    typeWeaknessesElement.textContent = weaknessesText;
-  } else {
-    typeWeaknessesElement.textContent = 'No type weaknesses';
-  }
-}
-
-// Function to calculate type effectiveness
-function calculateTypeEffectiveness(types) {
-  const typeEffectiveness = {
-    normal: {
-      strong: [],
-      weak: ['rock', 'steel'],
-    },
-    fire: {
-      strong: ['grass', 'ice', 'bug', 'steel'],
-      weak: ['fire', 'water', 'rock', 'dragon'],
-    },
-    water: {
-      strong: ['fire', 'ground', 'rock'],
-      weak: ['water', 'grass', 'dragon'],
-    },
-    electric: {
-      strong: ['water', 'flying'],
-      weak: ['electric', 'grass', 'dragon'],
-    },
-    grass: {
-      strong: ['water', 'ground', 'rock'],
-      weak: ['fire', 'grass', 'poison', 'flying', 'bug', 'dragon', 'steel'],
-    },
-    ice: {
-      strong: ['grass', 'ground', 'flying', 'dragon'],
-      weak: ['fire', 'water', 'ice', 'steel'],
-    },
-    fighting: {
-      strong: ['normal', 'ice', 'rock', 'dark', 'steel'],
-      weak: ['poison', 'flying', 'psychic', 'bug', 'fairy'],
-    },
-    poison: {
-      strong: ['grass', 'fairy'],
-      weak: ['poison', 'ground', 'rock', 'ghost'],
-    },
-    ground: {
-      strong: ['fire', 'electric', 'poison', 'rock', 'steel'],
-      weak: ['grass', 'bug'],
-    },
-    flying: {
-      strong: ['grass', 'fighting', 'bug'],
-      weak: ['electric', 'rock', 'steel'],
-    },
-    psychic: {
-      strong: ['fighting', 'poison'],
-      weak: ['psychic', 'steel'],
-    },
-    bug: {
-      strong: ['grass', 'psychic', 'dark'],
-      weak: ['fire', 'fighting', 'poison', 'flying', 'ghost', 'steel', 'fairy'],
-    },
-    rock: {
-      strong: ['fire', 'ice', 'flying', 'bug'],
-      weak: ['fighting', 'ground', 'steel'],
-    },
-    ghost: {
-      strong: ['psychic', 'ghost'],
-      weak: ['dark'],
-    },
-    dragon: {
-      strong: ['dragon'],
-      weak: ['steel'],
-    },
-    dark: {
-      strong: ['psychic', 'ghost'],
-      weak: ['fighting', 'dark', 'fairy'],
-    },
-    steel: {
-      strong: ['ice', 'rock', 'fairy'],
-      weak: ['fire', 'water', 'electric', 'steel'],
-    },
-    fairy: {
-      strong: ['fighting', 'dragon', 'dark'],
-      weak: ['fire', 'poison', 'steel'],
-    },
-  };
-
-  const effectiveness = {
-    strong: [],
-    weak: [],
-  };
-
-  for (const targetType of types) {
-    for (const pokemonType in typeEffectiveness) {
-      if (typeEffectiveness[pokemonType].strong.includes(targetType)) {
-        effectiveness.strong.push(pokemonType);
-      } else if (typeEffectiveness[pokemonType].weak.includes(targetType)) {
-        effectiveness.weak.push(pokemonType);
-      }
-    }
-  }
-
-  return effectiveness;
 }
 
 // Event listener for guess submission

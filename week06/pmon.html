@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Pokémon Quiz</h1>
+  <h1 id="title" data-text="Pokemon Quiz">Pokemon Quiz</h1>
   <div id="sprite-container"></div>
   <div id="generation-options">
     <input type="checkbox" class="gen-checkbox" id="gen1-checkbox" value="1">
@@ -19,10 +19,7 @@
     <input type="checkbox" class="gen-checkbox" id="gen5-checkbox" value="5">
     <label for="gen5-checkbox">Generation 5</label>
   </div>
-  <div id="type-comparison">
-    <p id="type-advantages"></p>
-    <p id="type-weaknesses"></p>
-  </div>
+  
   <input type="text" id="guess-input" placeholder="Enter your guess">
   <button id="submit-button">Guess</button>
   <button id="new-game-button">New Game</button>

@@ -1,40 +1,77 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
+@keyframes flicker {
+    0% {
+      color: #ff0000; /* Red */
+    }
+    14% {
+      color: #ff8000; /* Orange */
+    }
+    28% {
+      color: #ffff00; /* Yellow */
+    }
+    42% {
+      color: #00ff00; /* Green */
+    }
+    57% {
+      color: #0000ff; /* Blue */
+    }
+    71% {
+      color: #4b0082; /* Indigo */
+    }
+    85% {
+      color: #8b00ff; /* Violet */
+    }
+    100% {
+      color: #ff0000; /* Red */
+    }
   }
   
+  h1#title {
+    position: relative;
+    display: inline-block;
+    animation: flicker 7s infinite;
+  }
+  
+   
   #sprite-container {
     margin-bottom: 20px;
   }
   
   img {
-    max-width: 200px;
-    height: auto;
+    max-width: 300px;
+    height: 200px;
   }
   
-  #generation-options {
+  #generation-options,
+  #guess-result,
+  .gen-checkbox,
+  #guess-input,
+  #submit-button,
+  #new-game-button {
+    background-color: #fff;
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 4px;
     margin-bottom: 10px;
   }
   
-  input[type="checkbox"] {
-    margin-right: 5px;
+  body {
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #ff0000; /* Red */
+  margin: 0;
+  padding: 20px;
   }
   
-  input[type="text"] {
-    padding: 8px;
-    font-size: 16px;
-    width: 200px;
-    margin-right: 10px;
+  button:hover,
+  input[type="text"]:focus {
+    background-color: #f2f2f2;
+    outline: none;
   }
-  
-  button {
-    padding: 8px 16px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  #guess-result {
-    margin-top: 20px;
-  }
-  
+  #submit-button,
+#new-game-button {
+  margin-top: 10px;
+}
